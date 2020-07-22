@@ -263,9 +263,9 @@ This is the main data structure used fot map data analytics.
 * `w` : edge weights, indexed by graph id
 * `class` : road class of each edge
 """
-struct MapData
+struct MapData{T <: Union{ENU,LLA}}
     bounds::Bounds{LLA}
-    nodes::Dict{Int,ENU}
+    nodes::Dict{Int,T}
     roadways::Array{Way,1}
     intersections::Dict{Int,Set{Int}}
     # Transporation network graph data and helpers to increase routing speed
